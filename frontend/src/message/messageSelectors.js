@@ -1,0 +1,1 @@
+export const getMessageText = state => state.message.text;
