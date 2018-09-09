@@ -1,7 +1,7 @@
 import { SET_MESSAGE } from "./MessageActionTypes";
 
 const initialState = {
-	text: "abc"
+	text: ""
 };
 
 const messageReducer = (state = initialState, action) => {
