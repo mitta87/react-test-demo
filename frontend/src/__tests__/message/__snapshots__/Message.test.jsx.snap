@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message should match snapshot 1`] = `
+<div
+  className="Message"
+>
+  <div
+    className="Message__text"
+  >
+    Some message
+  </div>
+  <div
+    className="Message__buttonsPanel"
+  >
+    <button
+      className="Message__button Message__button--load"
+    >
+      Load message
+    </button>
+    <button
+      className="Message__button Message__button--delete"
+    >
+      Delete message
+    </button>
+  </div>
+</div>
+`;
