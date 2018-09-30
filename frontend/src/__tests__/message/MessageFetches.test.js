@@ -2,7 +2,10 @@ const fetchMock = require('fetch-mock');
 import { fetchMessage } from "../../message/MessageFetches";
 import { MESSAGE_API_URL } from "../../message/MessageUrls";
 
-describe("messageReducer", () => {
+describe("messageFetches", () => {
+	beforeEach(() => {
+		fetchMock.reset();
+	});
 
 	it("should fetch message text (async/await example)", async () => {
 		//GIVEN

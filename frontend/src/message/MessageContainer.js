@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import Message from "./Message";
 import { deleteMessage, loadMessage } from "./MessageActions";
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
 	message: getMessageText(state)
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 	onLoadMessage: () => dispatch(loadMessage()),
 	onDeleteMessage: () => dispatch(deleteMessage())
 });
