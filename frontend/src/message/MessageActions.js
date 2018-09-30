@@ -1,4 +1,4 @@
-import { SET_MESSAGE } from "./MessageActionTypes";
+import { DELETE_MESSAGE, SET_MESSAGE } from "./MessageActionTypes";
 import { fetchMessage } from "./MessageFetches";
 
 export const loadMessage = () => {
@@ -7,3 +7,7 @@ export const loadMessage = () => {
 		payload: message
 	}));
 };
+
+export const deleteMessage = () => ({
+	type: DELETE_MESSAGE
+});
