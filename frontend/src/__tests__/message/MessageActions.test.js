@@ -36,24 +36,7 @@ describe("messageActions", () => {
 		await loadMessage()(dispatch);
 
 		//THEN
-		expect(dispatch.mock.calls[0][0]).toEqual(expected);
-	});
-
-	it("should create LOAD_MESSAGE action (manually mock dispatch example)", async () => {
-		//GIVEN
-		const message = "Some message";
-		fetchMessage.mockResolvedValueOnce(message);
-		const expected = {
-			type: SET_MESSAGE,
-			payload: message
-		};
-		const dispatch = jest.fn();
-
-		//WHEN
-		await loadMessage()(dispatch);
-
-		//THEN
-		expect(dispatch.mock.calls[0][0]).toEqual(expected);
+		expect(dispatch).toHaveBeenNthCalledWith(1, expected);
 	});
 
 	it("should create LOAD_MESSAGE action (mockStore example)", async () => {

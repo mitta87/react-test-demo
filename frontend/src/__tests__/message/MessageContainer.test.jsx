@@ -4,8 +4,7 @@ import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
 import Message from "../../message/Message";
 import { deleteMessage, loadMessage } from "../../message/MessageActions";
-import MessageContainer from "../../message/MessageContainer";
-import { mapDispatchToProps, mapStateToProps } from "../../message/MessageContainer";
+import MessageContainer, { mapDispatchToProps, mapStateToProps } from "../../message/MessageContainer";
 import { getMessageText } from "../../message/messageSelectors";
 
 jest.mock("../../message/MessageActions");
@@ -22,19 +21,6 @@ describe("MessageContainer", () => {
 
 		//WHEN
 		mapDispatchToProps(dispatch).onLoadMessage();
-
-		//THEN
-		expect(dispatch).toHaveBeenNthCalledWith(1, action);
-	});
-
-	it("should map dispatch to onDeleteMessage action", () => {
-		//GIVEN
-		const dispatch = jest.fn();
-		const action = { type: "Delete message" };
-		deleteMessage.mockReturnValueOnce(action);
-
-		//WHEN
-		mapDispatchToProps(dispatch).onDeleteMessage();
 
 		//THEN
 		expect(dispatch).toHaveBeenNthCalledWith(1, action);
@@ -75,6 +61,7 @@ describe("MessageContainer", () => {
 
 		//WHEN
 		const wrapper = mount(<Provider store={store}><MessageContainer/></Provider>);
+		// const wrapper = shallow(<MessageContainer store={store}/>);
 		wrapper.find(Message).props().onLoadMessage();
 
 		//THEN
@@ -105,6 +92,6 @@ describe("MessageContainer", () => {
 		const wrapper = mount(<Provider store={store}><MessageContainer/></Provider>);
 
 		//THEN
-		expect(wrapper.find(Message).prop("message")).toEqual(message);
+		expect(wrapper.find(Message).props().message).toEqual(message);
 	});
 });
